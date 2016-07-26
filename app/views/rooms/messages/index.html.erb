@@ -1,0 +1,7 @@
+<p>rooms/Messages_controllers</p>
+<ul>
+  <% @messages.each  do |message| %>
+    <li><%= message.text %></li>
+  <% end %>
+</ul>
+<%= render partial: 'form' %>

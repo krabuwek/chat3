@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  root 'rooms#index'
+  devise_for :users, path: 'auth'
+  resources :users
+  resources :rooms do
+    scope module: :rooms do
+       resources :users
+       resources :messages, only: [:index, :create]
+    end
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
